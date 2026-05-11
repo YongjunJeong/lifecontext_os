@@ -9,14 +9,16 @@ venv/
 env/
 *.egg-info/
 
-# Skyfield ephemeris (~17MB, 첫 실행 시 자동 다운로드)
-*.bsp
-*.de421
-*.de440
-
 # 사용자 개인 데이터 (절대 commit 금지)
 # templates/ 안에 채워진 vault는 fork·clone 후 사용자가 자기 자리에서 채움
 # 이 repo는 빈 템플릿만 유지
+private/
+personal/
+filled/
+vault.local/
+*.local.md
+*.private.md
+*.personal.md
 
 # OS
 .DS_Store

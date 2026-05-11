@@ -74,6 +74,57 @@ SHISHEN_GROUPS = {
     "偏印": "인성", "正印": "인성",
 }
 
+TEN_GOD_BY_DAY_STEM = {
+    "甲": {"甲": "比肩", "乙": "劫财", "丙": "食神", "丁": "伤官", "戊": "偏财", "己": "正财", "庚": "七杀", "辛": "正官", "壬": "偏印", "癸": "正印"},
+    "乙": {"乙": "比肩", "甲": "劫财", "丁": "食神", "丙": "伤官", "己": "偏财", "戊": "正财", "辛": "七杀", "庚": "正官", "癸": "偏印", "壬": "正印"},
+    "丙": {"丙": "比肩", "丁": "劫财", "戊": "食神", "己": "伤官", "庚": "偏财", "辛": "正财", "壬": "七杀", "癸": "正官", "甲": "偏印", "乙": "正印"},
+    "丁": {"丁": "比肩", "丙": "劫财", "己": "食神", "戊": "伤官", "辛": "偏财", "庚": "正财", "癸": "七杀", "壬": "正官", "乙": "偏印", "甲": "正印"},
+    "戊": {"戊": "比肩", "己": "劫财", "庚": "食神", "辛": "伤官", "壬": "偏财", "癸": "正财", "甲": "七杀", "乙": "正官", "丙": "偏印", "丁": "正印"},
+    "己": {"己": "比肩", "戊": "劫财", "辛": "食神", "庚": "伤官", "癸": "偏财", "壬": "正财", "乙": "七杀", "甲": "正官", "丁": "偏印", "丙": "正印"},
+    "庚": {"庚": "比肩", "辛": "劫财", "壬": "食神", "癸": "伤官", "甲": "偏财", "乙": "正财", "丙": "七杀", "丁": "正官", "戊": "偏印", "己": "正印"},
+    "辛": {"辛": "比肩", "庚": "劫财", "癸": "食神", "壬": "伤官", "乙": "偏财", "甲": "正财", "丁": "七杀", "丙": "正官", "己": "偏印", "戊": "正印"},
+    "壬": {"壬": "比肩", "癸": "劫财", "甲": "食神", "乙": "伤官", "丙": "偏财", "丁": "正财", "戊": "七杀", "己": "正官", "庚": "偏印", "辛": "正印"},
+    "癸": {"癸": "比肩", "壬": "劫财", "乙": "食神", "甲": "伤官", "丁": "偏财", "丙": "正财", "己": "七杀", "戊": "正官", "辛": "偏印", "庚": "正印"},
+}
+
+ELEMENT_GENERATES = {"木": "火", "火": "土", "土": "金", "金": "水", "水": "木"}
+ELEMENT_CONTROLS = {"木": "土", "土": "水", "水": "火", "火": "金", "金": "木"}
+ELEMENT_GENERATED_BY = {v: k for k, v in ELEMENT_GENERATES.items()}
+ELEMENT_CONTROLLED_BY = {v: k for k, v in ELEMENT_CONTROLS.items()}
+
+GAN_HAP = {frozenset(("甲", "己")): "土", frozenset(("乙", "庚")): "金", frozenset(("丙", "辛")): "水",
+           frozenset(("丁", "壬")): "木", frozenset(("戊", "癸")): "火"}
+GAN_CHONG = {frozenset(("甲", "庚")), frozenset(("乙", "辛")), frozenset(("丙", "壬")), frozenset(("丁", "癸"))}
+
+ZHI_CHONG = {frozenset(("子", "午")), frozenset(("丑", "未")), frozenset(("寅", "申")),
+             frozenset(("卯", "酉")), frozenset(("辰", "戌")), frozenset(("巳", "亥"))}
+ZHI_LIUHE = {frozenset(("子", "丑")): "土", frozenset(("寅", "亥")): "木", frozenset(("卯", "戌")): "火",
+             frozenset(("辰", "酉")): "金", frozenset(("巳", "申")): "水", frozenset(("午", "未")): "土"}
+ZHI_SANHE = {frozenset(("申", "子", "辰")): "水", frozenset(("亥", "卯", "未")): "木",
+             frozenset(("寅", "午", "戌")): "火", frozenset(("巳", "酉", "丑")): "金"}
+ZHI_FANGHE = {frozenset(("亥", "子", "丑")): "水", frozenset(("寅", "卯", "辰")): "木",
+              frozenset(("巳", "午", "未")): "火", frozenset(("申", "酉", "戌")): "金"}
+ZHI_BANHE = {
+    frozenset(("申", "子")): "水", frozenset(("子", "辰")): "水", frozenset(("申", "辰")): "水",
+    frozenset(("亥", "卯")): "木", frozenset(("卯", "未")): "木", frozenset(("亥", "未")): "木",
+    frozenset(("寅", "午")): "火", frozenset(("午", "戌")): "火", frozenset(("寅", "戌")): "火",
+    frozenset(("巳", "酉")): "金", frozenset(("酉", "丑")): "金", frozenset(("巳", "丑")): "金",
+}
+ZHI_XING = {frozenset(("寅", "巳")), frozenset(("巳", "申")), frozenset(("寅", "申")),
+            frozenset(("丑", "戌")), frozenset(("戌", "未")), frozenset(("丑", "未")),
+            frozenset(("子", "卯"))}
+ZHI_PO = {frozenset(("子", "酉")), frozenset(("午", "卯")), frozenset(("申", "巳")),
+          frozenset(("寅", "亥")), frozenset(("辰", "丑")), frozenset(("戌", "未"))}
+ZHI_HAI = {frozenset(("子", "未")), frozenset(("丑", "午")), frozenset(("寅", "巳")),
+           frozenset(("卯", "辰")), frozenset(("申", "亥")), frozenset(("酉", "戌"))}
+ZHI_WONJIN = {frozenset(("子", "未")), frozenset(("丑", "午")), frozenset(("寅", "酉")),
+              frozenset(("卯", "申")), frozenset(("辰", "亥")), frozenset(("巳", "戌"))}
+ZHI_GWIMUN = {frozenset(("子", "酉")), frozenset(("丑", "午")), frozenset(("寅", "未")),
+              frozenset(("卯", "申")), frozenset(("辰", "亥")), frozenset(("巳", "戌"))}
+
+PILLAR_LABELS = {"year": "年", "month": "月", "day": "日", "time": "時"}
+MONTH_LABELS_KO = ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"]
+
 # 납음 5행 60갑자 분류 (요약)
 NAYIN_KO = {
     "海中金": "해중금", "炉中火": "노중화", "大林木": "대림목", "路旁土": "노방토",
@@ -255,6 +306,164 @@ def fmt_shensha_list(items):
     return ", ".join(SHEN_SHA_KO.get(s, s) for s in items)
 
 
+def gan_zhi(ganzhi: str) -> tuple[str, str]:
+    return (ganzhi[0], ganzhi[1]) if len(ganzhi) >= 2 else ("?", "?")
+
+
+def shishen_ko_for_gan(day_gan: str, gan: str) -> str:
+    if gan == "?" or day_gan == "?":
+        return "-"
+    raw = TEN_GOD_BY_DAY_STEM.get(day_gan, {}).get(gan, "")
+    return SHISHEN_KO.get(raw, raw) or "-"
+
+
+def shishen_ko_for_zhi(day_gan: str, zhi: str) -> str:
+    if zhi == "?" or day_gan == "?":
+        return "-"
+    hidden = BRANCH_HIDDEN_MAIN.get(zhi)
+    return shishen_ko_for_gan(day_gan, hidden) if hidden else "-"
+
+
+BRANCH_HIDDEN_MAIN = {
+    "子": "癸", "丑": "己", "寅": "甲", "卯": "乙", "辰": "戊", "巳": "丙",
+    "午": "丁", "未": "己", "申": "庚", "酉": "辛", "戌": "戊", "亥": "壬",
+}
+
+
+def relation_detail(label_a: str, zhi_a: str, label_b: str, zhi_b: str, kind: str, element=None) -> str:
+    elem = f" → {WUXING_KO.get(element, element)}" if element else ""
+    return f"{label_a}{zhi_a}{label_b}{zhi_b} {kind}{elem}"
+
+
+def calc_relations(pillars: dict[str, tuple[str, str]]) -> dict:
+    """원국 내 천간/지지 관계. 해석 확정이 아니라 LLM 해석 재료."""
+    keys = ["year", "month", "day", "time"]
+    stem_relations = []
+    branch_relations: dict[str, list[str]] = {
+        "방합": [], "삼합": [], "반합": [], "육합": [], "충": [], "형": [], "파": [], "해": [], "원진": [], "귀문": []
+    }
+
+    present = [(k, pillars[k][0], pillars[k][1]) for k in keys if pillars[k][0] != "?" and pillars[k][1] != "?"]
+
+    for i, (ka, ga, za) in enumerate(present):
+        for kb, gb, zb in present[i + 1:]:
+            labels = (PILLAR_LABELS[ka], PILLAR_LABELS[kb])
+            pair_g = frozenset((ga, gb))
+            if pair_g in GAN_HAP:
+                stem_relations.append(f"{labels[0]}{ga}{labels[1]}{gb} 천간합 → {WUXING_KO[GAN_HAP[pair_g]]}")
+            if pair_g in GAN_CHONG:
+                stem_relations.append(f"{labels[0]}{ga}{labels[1]}{gb} 천간충")
+
+            pair_z = frozenset((za, zb))
+            if pair_z in ZHI_LIUHE:
+                branch_relations["육합"].append(relation_detail(labels[0], za, labels[1], zb, "육합", ZHI_LIUHE[pair_z]))
+            if pair_z in ZHI_BANHE:
+                branch_relations["반합"].append(relation_detail(labels[0], za, labels[1], zb, "반합", ZHI_BANHE[pair_z]))
+            if pair_z in ZHI_CHONG:
+                branch_relations["충"].append(relation_detail(labels[0], za, labels[1], zb, "충"))
+            if pair_z in ZHI_XING:
+                branch_relations["형"].append(relation_detail(labels[0], za, labels[1], zb, "형"))
+            if pair_z in ZHI_PO:
+                branch_relations["파"].append(relation_detail(labels[0], za, labels[1], zb, "파"))
+            if pair_z in ZHI_HAI:
+                branch_relations["해"].append(relation_detail(labels[0], za, labels[1], zb, "해"))
+            if pair_z in ZHI_WONJIN:
+                branch_relations["원진"].append(relation_detail(labels[0], za, labels[1], zb, "원진"))
+            if pair_z in ZHI_GWIMUN:
+                branch_relations["귀문"].append(relation_detail(labels[0], za, labels[1], zb, "귀문"))
+
+    present_zhi = {z for _, _, z in present}
+    for group, elem in ZHI_SANHE.items():
+        if group.issubset(present_zhi):
+            branch_relations["삼합"].append(f"{''.join(group)} 삼합 → {WUXING_KO[elem]}")
+    for group, elem in ZHI_FANGHE.items():
+        if group.issubset(present_zhi):
+            branch_relations["방합"].append(f"{''.join(group)} 방합 → {WUXING_KO[elem]}")
+
+    return {"stem": stem_relations, "branch": branch_relations}
+
+
+def relation_priorities(relations: dict) -> list[dict[str, str | float]]:
+    rules = [
+        ("충", 5.0, "급변·충돌 가능성"),
+        ("형", 4.5, "압박·피로 누적 가능성"),
+        ("파", 3.5, "관계 균열·계획 변동 가능성"),
+        ("해", 3.0, "오해·소통 불일치 가능성"),
+        ("원진", 2.8, "감정적 피로 누적 가능성"),
+        ("귀문", 2.8, "심리적 예민함·내적 갈등 가능성"),
+        ("삼합", 2.6, "기운 결집·확장 포인트"),
+        ("방합", 2.4, "방향성·세력화 포인트"),
+        ("육합", 2.2, "협력·완충 포인트"),
+        ("반합", 1.8, "조건부 협력 포인트"),
+    ]
+    items: list[dict[str, str | float]] = []
+    for text in relations["stem"]:
+        if "천간충" in text:
+            items.append({"label": "천간 충", "score": 4.8, "note": "의사결정·대인 충돌 가능성", "detail": text})
+        elif "천간합" in text:
+            items.append({"label": "천간 합", "score": 2.0, "note": "완충·협력 가능성", "detail": text})
+    for key, weight, note in rules:
+        for text in relations["branch"][key]:
+            items.append({"label": f"지지 {key}", "score": weight, "note": note, "detail": text})
+    return sorted(items, key=lambda x: (-float(x["score"]), str(x["label"])))
+
+
+def calc_advanced(day_gan: str, month_zhi: str, wuxing_count: dict[str, int], shishen_gan: dict[str, str]) -> dict:
+    """격국·용신 참고값. 유파 차이가 커서 확정값이 아닌 해석 보조로만 사용."""
+    day_elem = GAN_WUXING[day_gan]
+    support = wuxing_count[day_elem] + wuxing_count[ELEMENT_GENERATED_BY[day_elem]]
+    drain = wuxing_count[ELEMENT_GENERATES[day_elem]]
+    pressure = wuxing_count[ELEMENT_CONTROLLED_BY[day_elem]]
+    wealth = wuxing_count[ELEMENT_CONTROLS[day_elem]]
+    score = support * 18 - (drain + pressure + wealth) * 8
+    if month_zhi and ZHI_WUXING.get(month_zhi) == day_elem:
+        score += 20
+    strength = "강" if score >= 35 else "약" if score <= 5 else "중간"
+
+    month_ten_god = shishen_gan.get("month", "")
+    geukguk = f"{SHISHEN_KO.get(month_ten_god, month_ten_god)}격 참고" if month_ten_god else "격국 참고 필요"
+
+    if strength == "강":
+        candidates = [ELEMENT_GENERATES[day_elem], ELEMENT_CONTROLLED_BY[day_elem], ELEMENT_CONTROLS[day_elem]]
+        note = "일간이 강한 편으로 보면 설기·관성·재성 쪽 균형을 우선 검토"
+    elif strength == "약":
+        candidates = [ELEMENT_GENERATED_BY[day_elem], day_elem]
+        note = "일간이 약한 편으로 보면 인성·비겁 쪽 보강을 우선 검토"
+    else:
+        candidates = [ELEMENT_GENERATES[day_elem], ELEMENT_GENERATED_BY[day_elem]]
+        note = "중간 강도로 보면 과다·부족 오행과 월지를 함께 재검토"
+
+    return {
+        "day_strength": strength,
+        "day_strength_score": score,
+        "geukguk": geukguk,
+        "yongsin_candidates": [WUXING_KO[e] for e in candidates],
+        "note": note,
+    }
+
+
+def build_compact_summary(r: dict) -> str:
+    pillars = r["pillars"]
+    day_gan = r["day_master"]
+    wx = r["wuxing_count"]
+    ss = r["shishen_groups"]
+    advanced = r["advanced"]
+    relation_top = r["relation_priorities"][:5]
+    relation_line = " / ".join(f"{i+1}.{x['label']} {x['detail']}" for i, x in enumerate(relation_top)) or "강한 관계 신호 없음"
+    daeyun_line = " / ".join(f"{d['start_age']}~{d['end_age']} {d['ganzhi']}" for d in r["da_yun"][:5])
+    seyun_line = " / ".join(f"{x['year']} {x['ganzhi']}({x['gan_ten_god']}/{x['zhi_ten_god']})" for x in r["liu_nian"][:6])
+
+    return "\n".join([
+        "## LLM 압축 요약",
+        f"원국 年{''.join(pillars['year'])} 月{''.join(pillars['month'])} 日{''.join(pillars['day'])} 時{''.join(pillars['time'])}",
+        f"일간 {day_gan}({GAN_KO[day_gan]}){WUXING_KO[GAN_WUXING[day_gan]]} / 강약 참고 {advanced['day_strength']}({advanced['day_strength_score']}) / 격국 {advanced['geukguk']} / 용신 후보 {', '.join(advanced['yongsin_candidates'])}",
+        f"오행 목{wx['木']} 화{wx['火']} 토{wx['土']} 금{wx['金']} 수{wx['水']} / 십신 비겁{ss['비겁']} 식상{ss['식상']} 재성{ss['재성']} 관성{ss['관성']} 인성{ss['인성']}",
+        f"관계 우선순위: {relation_line}",
+        f"대운: {daeyun_line}",
+        f"세운: {seyun_line}",
+    ])
+
+
 def calculate(args):
     # 날짜·시간 파싱
     date_part = datetime.strptime(args.date, "%Y-%m-%d")
@@ -399,6 +608,14 @@ def calculate(args):
         day_zhi=pillars["day"][1],
         all_zhi=all_zhi_for_shensha,
     )
+    relations = calc_relations(pillars)
+    rel_priorities = relation_priorities(relations)
+    advanced = calc_advanced(
+        day_gan=pillars["day"][0],
+        month_zhi=pillars["month"][1],
+        wuxing_count=wuxing_count,
+        shishen_gan=shishen_gan,
+    )
 
     # 명궁/태원/태식
     extras = {
@@ -431,15 +648,29 @@ def calculate(args):
     # 세운 (현재 진행 중인 대운 + 다음 N년)
     current_year = datetime.now().year
     liu_nian_list = []
+    wolun_list = []
     for d in yun.getDaYun():
         if d.getStartYear() <= current_year <= d.getEndYear():
             for ln in d.getLiuNian():
                 if current_year <= ln.getYear() <= current_year + args.liunian_years - 1:
+                    ln_gan, ln_zhi = gan_zhi(ln.getGanZhi())
                     liu_nian_list.append({
                         "year": ln.getYear(),
                         "ganzhi": ln.getGanZhi(),
+                        "gan_ten_god": shishen_ko_for_gan(pillars["day"][0], ln_gan),
+                        "zhi_ten_god": shishen_ko_for_zhi(pillars["day"][0], ln_zhi),
                         "age": ln.getYear() - args.liunian_years + (d.getEndAge() - d.getStartAge()),
                     })
+                    if ln.getYear() == current_year:
+                        for ly in ln.getLiuYue()[:12]:
+                            ly_gan, ly_zhi = gan_zhi(ly.getGanZhi())
+                            idx = ly.getIndex()
+                            wolun_list.append({
+                                "month": MONTH_LABELS_KO[idx] if 0 <= idx < 12 else ly.getMonthInChinese(),
+                                "ganzhi": ly.getGanZhi(),
+                                "gan_ten_god": shishen_ko_for_gan(pillars["day"][0], ly_gan),
+                                "zhi_ten_god": shishen_ko_for_zhi(pillars["day"][0], ly_zhi),
+                            })
             # 현재 대운 다음 대운까지 확장
             next_idx = d.getIndex() + 1
             all_dy = yun.getDaYun()
@@ -448,14 +679,17 @@ def calculate(args):
                     if len(liu_nian_list) >= args.liunian_years:
                         break
                     if current_year <= ln.getYear() <= current_year + args.liunian_years - 1:
+                        ln_gan, ln_zhi = gan_zhi(ln.getGanZhi())
                         liu_nian_list.append({
                             "year": ln.getYear(),
                             "ganzhi": ln.getGanZhi(),
+                            "gan_ten_god": shishen_ko_for_gan(pillars["day"][0], ln_gan),
+                            "zhi_ten_god": shishen_ko_for_zhi(pillars["day"][0], ln_zhi),
                             "age": None,
                         })
             break
 
-    return {
+    result = {
         "pillars": pillars,
         "wuxing_count": wuxing_count,
         "shishen_gan": shishen_gan,
@@ -468,16 +702,23 @@ def calculate(args):
         "ji_shen": ji_shen,
         "xiong_sha": xiong_sha,
         "korean_shensha": korean_shensha,
+        "relations": relations,
+        "relation_priorities": rel_priorities,
+        "advanced": advanced,
         "extras": extras,
         "yun_meta": yun_meta,
         "da_yun": da_yun_list,
         "liu_nian": liu_nian_list,
+        "wolun": wolun_list,
+        "current_year": current_year,
         "lunar_date": f"{lunar.getYear()}-{lunar.getMonth():02d}-{lunar.getDay():02d}",
         "day_master": pillars["day"][0],
         "time_known": time_known,
         "dt_input": dt_input,
         "dt_corrected": dt_corrected,
     }
+    result["compact_summary"] = build_compact_summary(result)
+    return result
 
 
 def fmt_pillar(gan, zhi):
@@ -557,12 +798,37 @@ def render_md(args, r):
     # 세운 표 (현재 + N년)
     if r["liu_nian"]:
         liu_nian_rows = "\n".join(
-            f"| {ln['year']} | {ln['ganzhi']} |" for ln in r["liu_nian"]
+            f"| {ln['year']} | {ln['ganzhi']} | {ln['gan_ten_god']} | {ln['zhi_ten_god']} |" for ln in r["liu_nian"]
         )
     else:
-        liu_nian_rows = "| (계산 불가) | - |"
+        liu_nian_rows = "| (계산 불가) | - | - | - |"
+
+    # 월운 표 (올해 12개월)
+    if r["wolun"]:
+        wolun_rows = "\n".join(
+            f"| {w['month']} | {w['ganzhi']} | {w['gan_ten_god']} | {w['zhi_ten_god']} |" for w in r["wolun"]
+        )
+    else:
+        wolun_rows = "| (계산 불가) | - | - | - |"
+
+    # 관계 강도 표
+    if r["relation_priorities"]:
+        relation_rows = "\n".join(
+            f"| {i + 1} | {item['label']} | {float(item['score']):.1f} | {item['detail']} | {item['note']} |"
+            for i, item in enumerate(r["relation_priorities"])
+        )
+    else:
+        relation_rows = "| - | 특이 신호 없음 | - | - | 충/형 중심의 강한 충돌 신호는 상대적으로 약함 |"
+
+    branch_relation_lines = []
+    for key, items in r["relations"]["branch"].items():
+        if items:
+            branch_relation_lines.append(f"- **{key}**: " + " / ".join(items))
+    branch_relation_block = "\n".join(branch_relation_lines) if branch_relation_lines else "- 특이 지지 관계 없음"
+    stem_relation_block = "\n".join(f"- {x}" for x in r["relations"]["stem"]) if r["relations"]["stem"] else "- 특이 천간 관계 없음"
 
     yun_dir = "순행 (양남/음녀)" if r["yun_meta"]["is_forward"] else "역행 (음남/양녀)"
+    advanced = r["advanced"]
 
     md = f"""# 사주 — 8자 + 대운 + 세운 + 신살 + 12운성 + 공망
 
@@ -570,6 +836,13 @@ def render_md(args, r):
 > **검증된 출처:** 8자 = sajupy (한국 만세력 1900-2100) ↔ lunar-python (자동 cross-check 통과 ✅)
 > 추가 기능 = lunar-python (대운/세운/12운성/공망/신살/지장간/납음)
 > **계산은 박제, 해석은 on-demand.** LLM 추측 ❌.
+
+---
+
+{r["compact_summary"]}
+
+> 위 압축 요약은 다른 LLM에 `saju.md` 전체를 넣기 어려울 때 우선 전달하는 섹션.
+> 단, 사주는 보조 색깔이며 실제 조언의 1순위 근거는 사용자가 직접 채운 자기진단·철학·시스템이다.
 
 ---
 
@@ -630,7 +903,6 @@ def render_md(args, r):
 
 **과다 오행:** {", ".join(over) or "없음"}
 **부족 오행:** {", ".join(under) or "없음"}
-**용신 후보:** (해석 필요 — LLM에게 "내 사주 용신 잡아줘" 요청)
 
 ---
 
@@ -670,6 +942,41 @@ def render_md(args, r):
 | 지장간 | {hg_row} |
 
 > 월지 지장간 = 격국 판정의 핵심.
+
+---
+
+## 원국 관계 — 합·충·형·파·해·원진·귀문
+
+### 천간 관계
+
+{stem_relation_block}
+
+### 지지 관계
+
+{branch_relation_block}
+
+### 관계 강도 우선순위
+
+| 순위 | 관계 | 점수 | 근거 | 해석 포인트 |
+|---|---|---:|---|---|
+{relation_rows}
+
+> 이 섹션은 `ssaju`식 LLM-ready 관계 요약을 참고해 추가한 해석 재료.
+> 관계 자체가 운명을 결정하지 않는다. 충·형은 위험 딱지가 아니라 *미리 보는 긴장 지점*이다.
+
+---
+
+## 고급 분석 참고 — 일간 강약·격국·용신 후보
+
+| 항목 | 값 |
+|---|---|
+| 일간 강약 참고 | {advanced["day_strength"]} ({advanced["day_strength_score"]}) |
+| 격국 참고 | {advanced["geukguk"]} |
+| 용신 후보 | {", ".join(advanced["yongsin_candidates"])} |
+| 해석 메모 | {advanced["note"]} |
+
+> 격국·용신은 유파 차이가 크므로 **확정값이 아니라 참고값**이다.
+> 사용자가 명시 요청했을 때만 해석에 쓰고, 사용자 자기입력을 덮어쓰지 않는다.
 
 ---
 
@@ -721,11 +1028,21 @@ def render_md(args, r):
 
 ## 세운 (歲運) — 향후 {args.liunian_years}년
 
-| 연도 | 간지 |
-|---|---|
+| 연도 | 간지 | 천간 십신 | 지지 십신 |
+|---|---|---|---|
 {liu_nian_rows}
 
 > 매년 들어오는 간지. 일간과의 십신 관계로 *그 해의 테마* 결정.
+
+---
+
+## 월운 (月運) — {r["current_year"]}년 12개월
+
+| 월 | 간지 | 천간 십신 | 지지 십신 |
+|---|---|---|---|
+{wolun_rows}
+
+> 월운은 월 단위 리듬을 보는 보조 자료. 분기·월간 계획과 연결할 때만 가볍게 참조.
 
 ---
 
@@ -753,7 +1070,6 @@ def render_md(args, r):
 - 사주 강한 영역 → [philosophy.md](philosophy.md) *3개 축* 검증
 - 사주 약한 영역 → [life_os.md](life_os.md) *6 레이어*로 보완
 - 대운/세운 → [roadmap.md](roadmap.md) *연간/분기* 목표와 매칭
-- 별자리 교차 검증 → [zodiac.md](zodiac.md)
 
 ---
 
@@ -766,7 +1082,7 @@ def render_md(args, r):
 
 ## 갱신 이력
 
-- {datetime.now().strftime("%Y-%m-%d")}: `scripts/calc_saju.py` 실행 (8자 + 십신 + 12운성 + 공망 + 납음 + 지장간 + 신살 + 대운 + 세운)
+- {datetime.now().strftime("%Y-%m-%d")}: `scripts/calc_saju.py` 실행 (8자 + 십신 + 12운성 + 공망 + 납음 + 지장간 + 신살 + 관계 강도 + 대운 + 세운 + 월운)
 """
     return md
 
