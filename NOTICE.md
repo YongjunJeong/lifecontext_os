@@ -1,33 +1,33 @@
-# NOTICE
+# 출처 및 변경 내역
 
-LifeContext OS is a personalized fork and extension of the open-source `mylife-vault` project.
+LifeContext OS는 오픈소스 `mylife-vault` 프로젝트를 기반으로 개인화·확장한 포크입니다.
 
-## Upstream
+## 원본 프로젝트
 
-- Original project: https://github.com/yys5584/mylife-vault
-- License: MIT
+- 원본: https://github.com/yys5584/mylife-vault
+- 라이선스: MIT
 
-The original project provided the initial Markdown vault concept, interview flow, and template foundation.
+원본 프로젝트는 마크다운 기반 개인 볼트 컨셉, 인터뷰 흐름, 템플릿 기반 구조의 출발점을 제공했습니다.
 
-## Major Changes
+## 주요 변경 사항
 
-- Rebranded the project as **LifeContext OS**
-- Reworked the positioning into a local-first personal context vault for LLM-assisted life decisions
-- Added fact update rules: latest confirmed value plus correction history
-- Added time-sensitive decision rules: direction, timing, capacity, sequence, and risk
-- Added freshness rules for external market/legal/company information
-- Added career timing and job-change market-signal sections
-- Removed zodiac-related files, dependencies, tests, and documentation
-- Enhanced saju output with LLM-ready compact summaries, relation priority, yearly/monthly flows, and reference-only advanced interpretation
+- 프로젝트를 **LifeContext OS**로 리브랜딩
+- 로컬 우선 개인 컨텍스트 볼트로 포지셔닝 재정리
+- 최신 확정값과 정정 이력을 함께 관리하는 사실 업데이트 규칙 추가
+- `방향성 / 시의성 / 여력 / 순서 / 리스크` 기반 의사결정 규칙 추가
+- 채용 시장, 법·제도, 회사 정보, 산업 흐름 같은 외부 정보 최신성 확인 규칙 추가
+- 커리어 타이밍과 이직 시장 신호 섹션 추가
+- 별자리 관련 파일, 의존성, 테스트, 문서 제거
+- 사주 출력 강화: LLM용 압축 요약, 관계 강도, 세운·월운, 참고용 고급 해석 추가
 
-## Additional References
+## 추가 참고 자료
 
 - `sajupy`: https://github.com/0ssw1/sajupy
 - `lunar-python`: https://github.com/6tail/lunar-python
 - `ssaju`: https://github.com/golbin/ssaju
 
-`ssaju` was used as a design reference for compact LLM-friendly saju output and relation-priority presentation. Its code was not vendored into this repository.
+`ssaju`는 LLM 친화적인 사주 압축 출력과 관계 강도 표현 방식을 설계 참고로 사용했습니다. `ssaju` 코드는 이 저장소에 포함하지 않았습니다.
 
-## Personal Data
+## 개인 데이터
 
-Any personal information later written into the Markdown templates belongs to the vault owner and should not be committed to a public portfolio repository.
+이후 마크다운 템플릿에 입력되는 실제 개인정보는 볼트 소유자의 데이터이며, 공개 포트폴리오 저장소에 커밋하면 안 됩니다.

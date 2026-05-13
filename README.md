@@ -1,119 +1,117 @@
 # LifeContext OS
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Tests](https://img.shields.io/badge/tests-10%2F10%20passing-brightgreen)](tests/)
-[![Python](https://img.shields.io/badge/python-3.10+-blue)](https://www.python.org/)
-[![Local First](https://img.shields.io/badge/local--first-personal%20context-green)](AGENTS.md)
-[![No Speculation](https://img.shields.io/badge/no%20speculation-verified%20data%20only-critical)](CLAUDE.md)
+[![라이선스: MIT](https://img.shields.io/badge/%EB%9D%BC%EC%9D%B4%EC%84%A0%EC%8A%A4-MIT-yellow.svg)](LICENSE)
+[![테스트: 통과](https://img.shields.io/badge/%ED%85%8C%EC%8A%A4%ED%8A%B8-10%2F10%20%ED%86%B5%EA%B3%BC-brightgreen)](tests/)
+[![파이썬](https://img.shields.io/badge/%ED%8C%8C%EC%9D%B4%EC%8D%AC-3.10+-blue)](https://www.python.org/)
+[![로컬 우선](https://img.shields.io/badge/%EB%A1%9C%EC%BB%AC%20%EC%9A%B0%EC%84%A0-%EA%B0%9C%EC%9D%B8%20%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8-green)](AGENTS.md)
+[![검증 우선](https://img.shields.io/badge/%EA%B2%80%EC%A6%9D%20%EC%9A%B0%EC%84%A0-%EC%B6%94%EC%B8%A1%20%EA%B8%88%EC%A7%80-critical)](CLAUDE.md)
 
-**LifeContext OS** is a local-first personal context vault for LLM-assisted life decisions.
+**LifeContext OS**는 LLM 기반 개인 의사결정을 위한 로컬 우선 개인 컨텍스트 볼트입니다.
 
-It stores long-lived personal context in Markdown, keeps facts updated with correction history, and helps an LLM answer decision questions through identity, current timing, capacity, market freshness, and optional saju context.
-
-> Core idea: **my data stays in Markdown, the LLM is replaceable, and decisions are judged by both life direction and present timing.**
+오래 유지되는 자기 정보는 마크다운에 저장하고, LLM은 그 문서를 읽어 의사결정을 돕는 교체 가능한 추론 인터페이스로 사용합니다. 핵심은 “내 데이터는 내가 소유하고, LLM은 그때그때 바꿀 수 있으며, 판단은 인생 방향성과 현재 시점성을 함께 본다”입니다.
 
 ---
 
-## What It Does
+## 무엇을 해결하나
 
-LifeContext OS is designed for questions like:
+LifeContext OS는 이런 질문에 답하기 위한 구조입니다.
 
-- "Should I change jobs now, or wait three months?"
-- "Is this side project aligned with my current quarter?"
-- "Am I making this decision from identity or from anxiety?"
-- "Is this the right timing given my age, cash flow, health, and market conditions?"
+- "지금 이직할까, 3개월 뒤 2년 채우고 움직일까?"
+- "이 사이드 프로젝트를 이번 분기에 시작해도 될까?"
+- "이 결정이 내 정체성에서 나온 건가, 불안에서 나온 건가?"
+- "지금 내 나이·현금흐름·건강·채용 시장을 고려하면 적절한 타이밍인가?"
 
-The system separates:
+시스템은 정보를 이렇게 분리합니다.
 
-| Layer | Role |
+| 층 | 역할 |
 |---|---|
-| Local Markdown vault | Personal memory, values, patterns, career, relationships, money, plans |
-| LLM | Replaceable reasoning interface |
-| Web/latest sources | Time-sensitive external reality such as hiring markets, salary bands, laws, trends |
-| Optional saju | Explicitly requested cultural/reflective context only |
+| 로컬 마크다운 볼트 | 개인 기억, 가치관, 패턴, 커리어, 관계, 돈, 계획 |
+| LLM | 교체 가능한 추론 인터페이스 |
+| 웹/최신 출처 | 채용 시장, 연봉 밴드, 법·제도, 산업 흐름 같은 외부 현실 |
+| 선택 사주 | 사용자가 명시 요청할 때만 참고하는 문화적·성찰용 보조 자료 |
 
 ---
 
-## Key Features
+## 핵심 기능
 
-- **Local-first personal memory**: Markdown files hold the user's self-profile, philosophy, roadmap, career style, relationship patterns, and operating rules.
-- **Fact update protocol**: when old and new facts conflict, the latest confirmed value becomes the current truth while meaningful corrections remain in history.
-- **Time-sensitive decision filter**: major decisions are judged through `direction / timing / capacity / sequence / risk`.
-- **External freshness rule**: hiring markets, salary bands, company reputation, laws, visa/tax rules, rates, and industry trends require fresh sources or an explicit "needs latest check" marker.
-- **LLM-agnostic design**: works with Codex, Claude, ChatGPT, or a local LLM as long as the model can read the vault.
-- **Privacy-aware workflow**: sensitive real data can remain local; external LLMs can receive only selected summaries.
-- **Enhanced saju support**: Python-based saju calculation with `sajupy ↔ lunar-python` cross-check, plus LLM-ready compact summaries, relation priority, yearly/monthly flow, and clearly marked reference-only interpretation.
+- **로컬 우선 개인 기억**: 자기 진단, 철학, 로드맵, 커리어, 관계, 투자, 사이드 프로젝트 정보를 마크다운으로 보관합니다.
+- **사실 업데이트 규칙**: 이전 정보와 새 정보가 충돌하면 최신 확정값을 현재 기준으로 삼고, 의미 있는 변경은 정정 이력에 남깁니다.
+- **시의성 의사결정 필터**: 큰 결정은 `방향성 / 시의성 / 여력 / 순서 / 리스크` 기준으로 판단합니다.
+- **최신 외부 정보 확인 규칙**: 채용 시장, 연봉, 회사 평판, 법·세금·비자, 금리, 산업 트렌드는 최신 출처 확인 또는 `최신 확인 필요` 표시를 요구합니다.
+- **LLM 독립 구조**: Codex, Claude, ChatGPT, 로컬 LLM 등 문서를 읽을 수 있는 모델이면 바꿔 쓸 수 있습니다.
+- **프라이버시 중심 운영**: 민감한 원문은 로컬에 두고, 외부 LLM에는 필요한 요약만 넘길 수 있습니다.
+- **검증형 사주 보조**: `sajupy ↔ lunar-python` 교차검증 기반 사주 계산, LLM용 압축 요약, 관계 강도, 세운·월운, 참고용 격국·용신 후보를 제공합니다.
 
 ---
 
-## Project Structure
+## 프로젝트 구조
 
 ```text
 lifecontext-os/
-├── AGENTS.md                       # Rules for Codex and other AI agents
-├── CLAUDE.md                       # Rules for Claude Code
-├── SETUP.md                        # Interview guide
-├── QUICKSTART.md                   # Quick start guide
-├── LICENSE                         # MIT
-├── NOTICE.md                       # Attribution and modification notes
-├── templates/                      # Personal context templates
-│   ├── philosophy.md               # Life priority, values, identity
-│   ├── self_profile.md             # Self diagnosis, strengths, weaknesses, background
-│   ├── life_os.md                  # Operating system layers
-│   ├── life_compass.md             # Daily and major decision compass
-│   ├── roadmap.md                  # Daily to yearly planning
-│   ├── relationship_protocol.md    # Relationship incidents and message rules
-│   ├── side_project_strategy.md    # Side project operating rules
-│   ├── love_style.md               # Relationship style
-│   ├── investment_style.md         # Investment style
-│   ├── career_style.md             # Career and job-change timing
-│   └── saju.md                     # Optional verified saju context
+├── AGENTS.md                       # Codex 등 AI 에이전트용 운영 규칙
+├── CLAUDE.md                       # Claude Code용 운영 규칙
+├── SETUP.md                        # 인터뷰 가이드
+├── QUICKSTART.md                   # 빠른 시작
+├── LICENSE                         # MIT 라이선스
+├── NOTICE.md                       # 출처와 변경 내역
+├── templates/                      # 개인 컨텍스트 템플릿
+│   ├── philosophy.md               # 인생 우선순위, 가치, 정체성
+│   ├── self_profile.md             # 자기 진단, 강점, 약점, 배경
+│   ├── life_os.md                  # 6 레이어 운영 시스템
+│   ├── life_compass.md             # 매일/큰 결정용 컴파스
+│   ├── roadmap.md                  # 데일리부터 연간까지의 계획
+│   ├── relationship_protocol.md    # 관계 사건, 메시지, 침묵 룰
+│   ├── side_project_strategy.md    # 사이드 프로젝트 운영 룰
+│   ├── love_style.md               # 연애 스타일
+│   ├── investment_style.md         # 투자 스타일
+│   ├── career_style.md             # 커리어와 이직 시의성
+│   └── saju.md                     # 선택 사주 컨텍스트
 ├── scripts/
-│   ├── calc_saju.py                # Saju calculation and LLM-ready summary
+│   ├── calc_saju.py                # 사주 계산과 LLM용 요약 생성
 │   └── requirements.txt
 └── tests/
-    └── test_saju_regression.py     # Cross-check regression tests
+    └── test_saju_regression.py     # 사주 교차검증 회귀 테스트
 ```
 
 ---
 
-## Decision Model
+## 의사결정 모델
 
-For major decisions, LifeContext OS asks:
+큰 결정을 물어보면 LifeContext OS는 다음 순서로 판단합니다.
 
-| Lens | Question |
+| 렌즈 | 질문 |
 |---|---|
-| Direction | Does this match my values, identity, and 5-year north star? |
-| Timing | Is this right for my current age, quarter, career stage, cash flow, health, and relationship load? |
-| Capacity | Do I have enough time, money, energy, and emotional bandwidth? |
-| Sequence | Should I act now, prepare now, wait three months, or review next year? |
-| Risk | What do I lose if I act now, and what do I lose if I delay? |
+| 방향성 | 내 가치관, 정체성, 5년 북극성과 맞는가? |
+| 시의성 | 지금 나이, 분기, 커리어 단계, 현금흐름, 건강, 관계 부하에서 적절한가? |
+| 여력 | 시간·돈·체력·멘탈을 감당할 수 있는가? |
+| 순서 | 지금 실행인가, 지금은 준비만인가, 3개월 뒤인가, 내년 재검토인가? |
+| 리스크 | 지금 하면 잃는 것과 미루면 잃는 것은 각각 무엇인가? |
 
-Example:
+예시:
 
 ```text
-Direction: yes
-Timing: wait three months
-Reason: 2-year tenure mark improves career signaling and interview narrative
-Now: prepare resume, portfolio, references, and market map
-Act: start active applications after the 2-year mark unless health or ethics require earlier exit
+방향성: 맞음
+시의성: 3개월 대기 권장
+이유: 현 회사 2년 재직 시점이 이력서와 면접 서사에 더 유리할 수 있음
+지금 할 일: 이력서, 포트폴리오, 레퍼런스, 목표 회사 리스트 준비
+실행 시점: 건강·윤리 문제가 없다면 2년 달성 직후 적극 지원
 ```
 
 ---
 
-## Saju Layer
+## 사주 레이어
 
-Saju is optional and never the primary basis for advice.
+사주는 선택 기능이며 조언의 1순위 근거가 아닙니다.
 
-Rules:
+운영 규칙:
 
-- Use only when the user explicitly asks.
-- Never let saju override the user's self-knowledge.
-- Never generate saju data from memory.
-- `scripts/calc_saju.py` cross-checks 8 characters through `sajupy` and `lunar-python`.
-- Gyeokguk/yongsin/day-strength outputs are marked as reference because schools differ.
+- 사용자가 명시적으로 요청할 때만 사용합니다.
+- 사용자 자기인식보다 사주를 우선하지 않습니다.
+- LLM이 사주 데이터를 머리로 만들어내지 않습니다.
+- `scripts/calc_saju.py`는 `sajupy`와 `lunar-python`으로 8자를 교차검증합니다.
+- 격국·용신·일간 강약은 유파 차이가 있어 참고값으로 표시합니다.
 
-Run:
+실행:
 
 ```bash
 pip install -r scripts/requirements.txt
@@ -123,51 +121,49 @@ python tests/test_saju_regression.py
 
 ---
 
-## Privacy Model
+## 프라이버시 모델
 
-Recommended operating modes:
-
-| Mode | Use |
+| 모드 | 사용 방식 |
 |---|---|
-| Local-only | Real names, money, relationships, health, and family history stay in local Markdown |
-| External LLM with selected context | Share only the subset or summary needed for a question |
-| Hybrid | Use Codex/Claude for system design and local LLM for sensitive life advice |
+| 로컬 전용 | 실명, 금액, 관계, 건강, 가족사 원문을 로컬 마크다운에만 보관 |
+| 외부 LLM + 선택 컨텍스트 | 질문에 필요한 일부 문서나 요약만 전달 |
+| 혼합형 | Codex/Claude는 시스템 설계에, 로컬 LLM은 민감한 자기상담에 사용 |
 
-The vault is the source of truth. LLMs are reasoning interfaces.
-
----
-
-## Portfolio Notes
-
-This repository is a personalized fork and extension of an open-source life vault template.
-
-Major extensions include:
-
-- Rebranded system architecture as **LifeContext OS**
-- Local-first privacy model
-- Fact correction and latest-confirmed-value protocol
-- Time-sensitive decision framework
-- Career timing layer with market freshness checks
-- Removal of zodiac functionality
-- Enhanced saju output inspired by LLM-ready analysis patterns
-
-See [NOTICE.md](NOTICE.md) for attribution.
+볼트가 진짜 원장이고, LLM은 추론 인터페이스입니다.
 
 ---
 
-## Credits
+## 포트폴리오 관점
 
-| Source | Use | License |
+이 저장소는 오픈소스 라이프 볼트 템플릿을 기반으로 개인 의사결정 시스템으로 확장한 포크입니다.
+
+주요 변경점:
+
+- **LifeContext OS**로 리브랜딩
+- 로컬 우선 프라이버시 모델 정리
+- 최신 확정값과 정정 이력 기반 사실 업데이트 규칙 추가
+- 시의성 기반 의사결정 프레임 추가
+- 커리어 타이밍과 채용 시장 최신성 확인 레이어 추가
+- 별자리 기능 제거
+- LLM용 사주 압축 요약과 관계 강도 출력 강화
+
+출처와 변경 내역은 [NOTICE.md](NOTICE.md)에 정리되어 있습니다.
+
+---
+
+## 크레딧
+
+| 출처 | 용도 | 라이선스 |
 |---|---|---|
-| [yys5584/mylife-vault](https://github.com/yys5584/mylife-vault) | Original vault template and setup concept | MIT |
-| [sajupy](https://github.com/0ssw1/sajupy) | Korean manselyeok cross-check | MIT |
-| [lunar-python](https://github.com/6tail/lunar-python) | Saju calculation support | MIT |
-| [ssaju](https://github.com/golbin/ssaju) | Inspiration for LLM-ready compact saju summaries and relation-priority output | MIT |
+| [yys5584/mylife-vault](https://github.com/yys5584/mylife-vault) | 원본 볼트 템플릿과 셋업 컨셉 | MIT |
+| [sajupy](https://github.com/0ssw1/sajupy) | 한국 만세력 교차검증 | MIT |
+| [lunar-python](https://github.com/6tail/lunar-python) | 사주 계산 보조 | MIT |
+| [ssaju](https://github.com/golbin/ssaju) | LLM용 압축 사주 요약과 관계 강도 표현 참고 | MIT |
 
 ---
 
-## License
+## 라이선스
 
-MIT. Original copyright notices are preserved where applicable.
+MIT. 원본 저작권 고지는 적용 가능한 범위에서 보존합니다.
 
-Personal data entered into this vault is not part of the template license and should not be committed to a public repository.
+이 볼트에 나중에 입력되는 개인 데이터는 템플릿 라이선스의 일부가 아니며, 공개 저장소에 커밋하면 안 됩니다.

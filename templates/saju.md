@@ -2,8 +2,8 @@
 
 > 양력 생년월일시 + 성별 → 결정론적 계산.
 > `scripts/calc_saju.py`로 채워집니다.
-> **검증된 출처:** 8자 = sajupy (한국 만세력 1900-2100) ↔ lunar-python (자동 cross-check)
-> **계산은 박제, 해석은 on-demand.** LLM 추측 ❌.
+> **검증된 출처:** 8자 = sajupy (한국 만세력 1900-2100) ↔ lunar-python (자동 교차검증)
+> **계산은 박제, 해석은 요청 시.** LLM 추측 ❌.
 
 ---
 
