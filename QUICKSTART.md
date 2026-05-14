@@ -31,17 +31,19 @@ Claude Code를 쓰는 경우:
 
 ---
 
-## 먼저 채울 파일
+## 30분 최소 세팅
 
-추천 순서:
+처음에는 전부 채우려고 하지 말고 아래 5개만 먼저 채웁니다.
 
 1. `templates/self_profile.md`
 2. `templates/philosophy.md`
-3. `templates/life_os.md`
-4. `templates/life_compass.md`
-5. `templates/roadmap.md`
-6. 필요할 때만 도메인 파일: 커리어, 투자, 연애, 관계, 사이드 프로젝트
-7. 선택: `templates/saju.md`
+3. `templates/life_compass.md`
+4. `templates/roadmap.md`
+5. `templates/life_os.md`
+
+그 다음 필요할 때만 커리어, 투자, 연애, 관계, 사이드 프로젝트 문서를 확장합니다.
+
+사주는 기본 세팅이 아니라 선택 확장입니다. 명시적으로 쓰고 싶을 때만 `templates/saju.md`를 채웁니다.
 
 ---
 
@@ -54,6 +56,12 @@ Claude Code를 쓰는 경우:
 방향성 / 시의성 / 여력 / 순서 / 리스크 기준으로 판단해줘.
 외부 최신 정보가 필요한 항목은 웹검색하거나 최신 확인 필요로 표시해줘.
 ```
+
+---
+
+## 익명 예시 보기
+
+[examples/decision_job_change.md](examples/decision_job_change.md)에 가상의 이직 판단 예시가 있습니다.
 
 ---
 
@@ -71,6 +79,17 @@ python scripts/calc_saju.py \
 검증:
 
 ```bash
+python tests/test_saju_regression.py
+```
+
+---
+
+## 품질 검사
+
+공개 저장소에 올리기 전 검사합니다.
+
+```bash
+python scripts/check_quality.py
 python tests/test_saju_regression.py
 ```
 

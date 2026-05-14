@@ -173,7 +173,9 @@
 
 ---
 
-## 7. 사주 기반 (직업 적성)
+## 7. 선택 확장 — 사주 기반 직업 경향
+
+> 명시적으로 요청했을 때만 참고합니다. 이직·커리어 결정의 1순위 근거는 실제 성과, 시장 정보, 자기 진단, 현재 시의성입니다.
 
 → [saju.md](saju.md) 일간 + 십신 그룹 참조.
 
@@ -218,7 +220,7 @@
 | 인생 철학 (정체성 한 문장) | [philosophy.md](philosophy.md) |
 | 결정 OS | [life_compass.md](life_compass.md) |
 | 시간 단위 운영 | [roadmap.md](roadmap.md) |
-| 사주 (일간·십신) | [saju.md](saju.md) |
+| 선택 사주 (일간·십신) | [saju.md](saju.md) |
 | 사이드 (1인 비즈) | [side_project_strategy.md](side_project_strategy.md) |
 | 투자 (수익 다각화) | [investment_style.md](investment_style.md) |
 

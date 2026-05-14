@@ -1,6 +1,6 @@
 # 투자 스타일 — 리스크·자산·트리거·위험 신호
 
-> 본인 투자 OS. 매수·매도 결정 전 자문용. 사주 재성·식상과 연동.
+> 본인 투자 OS. 매수·매도 결정 전 자문용. 사주는 명시 요청 시만 보는 선택 확장.
 > `/lifecontext-setup` 섹션 9에서 채워집니다. 분기 1회 갱신.
 
 ---
@@ -99,7 +99,9 @@
 
 ---
 
-## 7. 사주 기반 (재성·식상 분포)
+## 7. 선택 확장 — 사주 기반 투자 경향
+
+> 명시적으로 요청했을 때만 참고합니다. 투자 결정의 1순위 근거는 자산 배분, 손실 감내력, 현금흐름, 투자 원칙입니다.
 
 → [saju.md](saju.md) 십신 그룹 표 참조.
 
@@ -154,7 +156,7 @@
 | 자기 진단 (강점·약점·위험 신호) | [self_profile.md](self_profile.md) |
 | 인생 철학 (돈관) | [philosophy.md](philosophy.md) |
 | 결정 OS (큰 결정 5필터) | [life_compass.md](life_compass.md) |
-| 사주 십신 분포 | [saju.md](saju.md) |
+| 선택 사주 십신 분포 | [saju.md](saju.md) |
 | 사이드 운영 (수익 창출) | [side_project_strategy.md](side_project_strategy.md) |
 
 ---

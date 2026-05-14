@@ -1,6 +1,7 @@
-"""사주 계산 회귀 테스트 — sajupy ↔ lunar-python cross-check.
+"""선택 사주 모듈 회귀 테스트 — 기준값 + sajupy ↔ lunar-python 교차검증.
 
-CLAUDE.md 절대 룰: "추측 금지, 실측 데이터만". 두 라이브러리 결과 일치 보장.
+CLAUDE.md 절대 룰: "추측 금지, 실측 데이터만".
+각 케이스는 고정 기준값과 두 라이브러리 결과 일치를 함께 확인한다.
 
 실행:
     pytest tests/test_saju_regression.py -v
@@ -22,25 +23,24 @@ from sajupy import calculate_saju as sajupy_calc
 from lunar_python import Solar
 
 
-# 알려진 reference 케이스 — 두 라이브러리 모두 동일 결과 산출해야 함
+# 알려진 기준 케이스 — 고정 기준값과 두 라이브러리 결과 모두 일치해야 함
 # 진태양시 보정 OFF (KST 표준자오선 기준 비교)
 REFERENCE_CASES = [
-    # (label, year, month, day, hour, minute, expected_8자_또는_None)
-    # expected가 None이면 두 라이브러리 일치만 확인
-    ("일반 오후 출생", 1990, 3, 15, 14, 30, None),
-    ("야자시 23:30", 1990, 3, 15, 23, 30, None),
-    ("조자시 00:30 (다음날)", 1990, 3, 16, 0, 30, None),
-    ("새벽 일반", 1990, 3, 16, 1, 30, None),
+    # (label, year, month, day, hour, minute, expected_8자)
+    ("일반 오후 출생", 1990, 3, 15, 14, 30, "庚午/己卯/己卯/辛未"),
+    ("야자시 23:30", 1990, 3, 15, 23, 30, "庚午/己卯/己卯/丙子"),
+    ("조자시 00:30 (다음날)", 1990, 3, 16, 0, 30, "庚午/己卯/庚辰/丙子"),
+    ("새벽 일반", 1990, 3, 16, 1, 30, "庚午/己卯/庚辰/丁丑"),
     # 절기 경계 — 입동 전후
-    ("입동 직전 1990-11-06", 1990, 11, 6, 12, 0, None),
+    ("입동 직전 1990-11-06", 1990, 11, 6, 12, 0, "庚午/丙戌/乙亥/壬午"),
     # 입춘 경계 — 매년 2/4 전후로 년주 변동
-    ("입춘 직전 2000-02-03", 2000, 2, 3, 12, 0, None),  # 己卯년
-    ("입춘 직후 2000-02-05", 2000, 2, 5, 12, 0, None),  # 庚辰년
+    ("입춘 직전 2000-02-03", 2000, 2, 3, 12, 0, "己卯/丁丑/辛卯/甲午"),
+    ("입춘 직후 2000-02-05", 2000, 2, 5, 12, 0, "庚辰/戊寅/癸巳/戊午"),
     # 윤달·절기 경계 케이스
-    ("2024-01-01 자정 직후", 2024, 1, 1, 0, 30, None),
+    ("2024-01-01 자정 직후", 2024, 1, 1, 0, 30, "癸卯/甲子/甲子/甲子"),
     # 멀리 떨어진 케이스
-    ("1900년 초", 1900, 1, 15, 12, 0, None),
-    ("2099년 말", 2099, 12, 25, 18, 0, None),
+    ("1900년 초", 1900, 1, 15, 12, 0, "己亥/丁丑/戊子/戊午"),
+    ("2099년 말", 2099, 12, 25, 18, 0, "己未/丙子/丙申/丁酉"),
 ]
 
 
@@ -110,15 +110,15 @@ def main():
 
 # pytest entry
 def test_saju_libraries_agree():
-    """pytest용 — 라이브러리 간 일치만 검증 (expected는 정보 제공)."""
+    """pytest용 — 라이브러리 간 일치와 기준값 일치를 함께 검증."""
     failures = test_all_cases()
-    failed_match = [f for f in failures if not f["lib_match"]]
-    if failed_match:
+    if failures:
         msg = "\n".join(
-            f"  {f['case']} ({f['date']}): lunar={f['lunar_python']}, sajupy={f['sajupy']}"
-            for f in failed_match
+            f"  {f['case']} ({f['date']}): lunar={f['lunar_python']}, "
+            f"sajupy={f['sajupy']}, expected={f['expected']}"
+            for f in failures
         )
-        raise AssertionError(f"sajupy ↔ lunar-python 불일치 {len(failed_match)}건:\n{msg}")
+        raise AssertionError(f"선택 사주 모듈 회귀 실패 {len(failures)}건:\n{msg}")
 
 
 if __name__ == "__main__":

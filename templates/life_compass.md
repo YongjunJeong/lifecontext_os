@@ -202,7 +202,7 @@
 |---|---|
 | 인생 철학 | [philosophy.md](philosophy.md) |
 | 자기 진단 | [self_profile.md](self_profile.md) |
-| 사주 8자 | [saju.md](saju.md) |
+| 선택 사주 8자 | [saju.md](saju.md) |
 | 통합 시스템 (6 레이어) | [life_os.md](life_os.md) |
 | 관계 프로토콜 | [relationship_protocol.md](relationship_protocol.md) |
 | 사이드 운영 | [side_project_strategy.md](side_project_strategy.md) |

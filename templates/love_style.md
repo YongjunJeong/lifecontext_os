@@ -60,7 +60,9 @@
 
 ---
 
-## 3. 궁합 — 사주 기반
+## 3. 선택 확장 — 사주 기반 궁합 경향
+
+> 명시적으로 요청했을 때만 참고합니다. 관계 결정의 1순위 근거는 실제 상호작용, 가치관, 애착 패턴, 생활 호환성입니다.
 
 ### 사주 (일간 기준)
 
@@ -153,7 +155,7 @@
 | 진행 중 사건·침묵·메시지 | [relationship_protocol.md](relationship_protocol.md) |
 | 자기 진단 (강점·약점·위험 신호) | [self_profile.md](self_profile.md) |
 | 인생 철학 | [philosophy.md](philosophy.md) |
-| 사주 (일간·십신·궁합) | [saju.md](saju.md) |
+| 선택 사주 (일간·십신·궁합) | [saju.md](saju.md) |
 
 ---
 
